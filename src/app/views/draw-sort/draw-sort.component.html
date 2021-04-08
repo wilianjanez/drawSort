@@ -18,10 +18,13 @@
         </button>
         <button mat-raised-button color="primary" (click)="draw()" style="padding-left: 2%;">
             Sortear
+        </button>
+        <button mat-raised-button color="primary" (click)="rank()" style="padding-left: 2%;">
+            Rankiar
         </button>        
     </div>
 
-    <label>  {{draw}} </label>
+    <label name="drawn">Sorteado = {{drawn}}</label>
 
     <ul>
         <li *ngFor="let data of datas"> 
