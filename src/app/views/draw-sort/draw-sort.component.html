@@ -1,0 +1,32 @@
+<p>
+    <mat-toolbar style="color: white; background-color: darkslateblue; font-size: x-large;">
+    <span>Draw Sort</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
+
+<div class="container" style="padding-left: 20%;">
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+        <mat-form-field class="example-full-width">
+        <mat-label>Valor</mat-label>
+        <input matInput maxlength="50" [(ngModel)]="data" placeholder="" (keyup.enter)="addValue()" required>
+        </mat-form-field>
+    </div>    
+    <div>
+        <button mat-raised-button color="primary" (click)="addValue()" style="padding-left: 2%;">
+            <mat-icon>playlist_add</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)="draw()" style="padding-left: 2%;">
+            Sortear
+        </button>        
+    </div>
+
+    <label>  {{draw}} </label>
+
+    <ul>
+        <li *ngFor="let data of datas"> 
+          {{data}}
+        </li>
+    </ul>
+
+</div>
