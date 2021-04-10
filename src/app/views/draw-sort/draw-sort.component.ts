@@ -30,6 +30,13 @@ export class DrawSortComponent implements OnInit {
     this.drawn = value;
   }
 
+  clean(): void {
+    this.datas = [];
+    //this.newArray = [];
+    this.data = null;
+    this.drawn = null;
+  }  
+
   rank(): void {
     this.datas = this.ranking(this.datas);
   }
