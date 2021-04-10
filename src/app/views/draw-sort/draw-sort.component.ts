@@ -6,15 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./draw-sort.component.css']
 })
 export class DrawSortComponent implements OnInit {
-  datas: [string];
-  newArray: [string];
+  datas: string[] = [];
+  newArray: string[] = [];
   data: any;
   drawn: any;
 
-  constructor() { 
-    this.datas = [''];
-    this.newArray = [''];
-  }
+  constructor() {}
 
   ngOnInit(): void {
 
@@ -34,21 +31,16 @@ export class DrawSortComponent implements OnInit {
   }
 
   rank(): void {
-    this.datas = this.datas.sort(function (a, b){ 
-      return Math.floor(Math.random() * 10);
-    });    
     this.datas = this.ranking(this.datas);
-
-    console.log('foi!');
   }
 
   ranking(values = ['']) {
-    this.newArray = [''];
+    this.newArray = [];
     let number = Math.floor(Math.random() * values.length);
     let count = 1;
     this.newArray.push(values[number]);
 
-    while (count < values.length - 1) {
+    while (count < values.length) {
         const newNumber = Math.floor(Math.random() * values.length);
         if (!this.newArray.includes(values[newNumber])) {
             count++;
@@ -59,4 +51,4 @@ export class DrawSortComponent implements OnInit {
 
     return this.newArray;
   }
-}
+} 
