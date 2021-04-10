@@ -6,30 +6,41 @@
 </p>
 
 <div class="container" style="padding-left: 20%;">
-    <div fxLayout="row wrap" fxLayoutAlign="start center">
-        <mat-form-field class="example-full-width">
-        <mat-label>Valor</mat-label>
-        <input matInput maxlength="50" [(ngModel)]="data" placeholder="" (keyup.enter)="addValue()" required>
-        </mat-form-field>
-    </div>    
-    <div>
-        <button mat-raised-button color="primary" (click)="addValue()" style="padding-left: 2%;">
-            <mat-icon>playlist_add</mat-icon>
-        </button>
-        <button mat-raised-button color="primary" (click)="draw()" style="padding-left: 2%;">
-            Sortear
-        </button>
-        <button mat-raised-button color="primary" (click)="rank()" style="padding-left: 2%;">
-            Rankiar
-        </button>        
+    <div fxLayout="row">
+        <div fxLayout="column">
+            <mat-form-field class="example-full-width">
+            <mat-label>Valor</mat-label>
+            <input matInput maxlength="50" [(ngModel)]="data" placeholder="" (keyup.enter)="addValue()">
+            </mat-form-field>
+        </div>    
+        <div fxLayout="column">
+            <button mat-raised-button color="primary" (click)="addValue()" style="margin-left: 8px;">
+                <mat-icon>playlist_add</mat-icon>
+            </button>
+        </div>            
+        <div fxLayout="column">            
+            <button mat-raised-button color="primary" (click)="draw()" style="margin-left: 8px;">
+                Sortear
+            </button>
+        </div>            
+        <div fxLayout="column" style="margin: inherit;">            
+            <button mat-raised-button color="primary" (click)="rank()" style="margin-left: 8px;">
+                Rankiar
+            </button>        
+        </div>
     </div>
-
-    <label name="drawn">Sorteado = {{drawn}}</label>
-
-    <ul>
-        <li *ngFor="let data of datas"> 
-          {{data}}
-        </li>
-    </ul>
-
+    <div fxLayout="row" style="padding-top: 3%; height: 100px;">
+        <div fxLayout="column">
+            <label name="drawn" *ngIf="drawn?.length > 0" style="font-size: xxx-large;">{{drawn}}</label>            
+        </div>
+    </div>
+    <div fxLayout="row" *ngIf="datas.length > 0" >
+        <div fxLayout="column">
+            <ol>
+                <li *ngFor="let data of datas"> 
+                  {{data}}
+                </li>
+            </ol>            
+        </div>
+    </div>    
 </div>
